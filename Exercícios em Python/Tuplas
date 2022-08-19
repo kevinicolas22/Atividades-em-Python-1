@@ -1,0 +1,22 @@
+#1.1
+tuples_list = []
+entrada = input()
+list_angles = entrada.split(' ')
+
+#1.2
+def get_tuple(string):
+  unidades = ['g', 'm', 's']
+  tuple = ()
+  for parte in unidades:
+    element, rest = string.split(parte) if parte in string else ['', string]
+    tuple = tuple + (int(element) if element else 0,)
+    string = rest
+  return tuple
+
+for i in range(0, len(list_angles)):
+  tuples = get_tuple(list_angles[i]) 
+  display(tuples)
+  tuples_list.append(tuples)
+  dictionary = dict(zip(list_angles, tuples_list))
+display(dictionary)
+
